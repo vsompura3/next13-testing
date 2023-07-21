@@ -3,7 +3,7 @@ import axios from 'axios'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { toast } from 'react-hot-toast'
+import { Toaster, toast } from 'react-hot-toast'
 
 export default function SignUpPage() {
   const router = useRouter()
@@ -31,8 +31,8 @@ export default function SignUpPage() {
       setIsLoading(true)
       const { data } = await axios.post('/api/users/signup', user)
       console.log('RECEIVED: ', data)
+      toast.success(data.message, { duration: 3000 })
       router.push('/login')
-      toast.success('Account created successfully!')
     } catch (error) {
       console.log(error)
       toast.error('Something went wrong!')
@@ -113,7 +113,7 @@ export default function SignUpPage() {
           }`}
         >
           {isLoading ? (
-            <span className="flex items-center gap-2">
+            <span className="flex justify-center items-center gap-2">
               <svg
                 className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
                 xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +126,7 @@ export default function SignUpPage() {
                   cy="12"
                   r="10"
                   stroke="currentColor"
-                  stroke-width="4"
+                  strokeWidth="4"
                 ></circle>
                 <path
                   className="opacity-75"
@@ -144,9 +144,10 @@ export default function SignUpPage() {
       <div className="flex gap-2">
         <span>Already have an account?</span>
         <Link className="text-blue-600 underline" href="/login">
-          LogIn Here.
+          LogIn.
         </Link>
       </div>
+      <Toaster />
     </div>
   )
 }
