@@ -6,8 +6,6 @@ import { useState } from 'react'
 
 export default function LoginPage() {
   const [user, setUser] = useState({
-    name: '',
-    username: '',
     email: '',
     password: '',
   })
