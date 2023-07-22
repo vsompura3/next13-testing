@@ -3,7 +3,7 @@ import axios from 'axios'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { Toaster, toast } from 'react-hot-toast'
+import { toast } from 'react-hot-toast'
 
 export default function SignUpPage() {
   const router = useRouter()
@@ -147,7 +147,6 @@ export default function SignUpPage() {
           LogIn.
         </Link>
       </div>
-      <Toaster />
     </div>
   )
 }
