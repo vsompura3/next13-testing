@@ -36,8 +36,14 @@ export const sendEmail = async ({ email, emailType, userID }: any) => {
       subject:
         emailType === 'VERIFY' ? 'Verify your account' : 'Reset password',
       html: `
-        <h1>Verify your account</h1>
-        <p>Click <a href="${
+        <h1
+         style="color: #f1356d; text-align: center; font-size: 2rem; font-weight: 500; margin-bottom: 1rem; margin-top: 0; padding-top: 0; line-height: 1.2; letter-spacing: 0.1rem; font-family: 'Poppins', sans-serif; text-transform: uppercase; text-decoration: none; text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);"
+         >Verify your account</h1>
+        <p
+          style="color: #333; font-size: 1.2rem; font-weight: 400; margin-bottom: 1rem; margin-top: 0; padding-top: 0; line-height: 1.2; letter-spacing: 0.1rem; font-family: 'Poppins', sans-serif; text-transform: uppercase; text-decoration: none; text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); "
+        >Click <a
+          style="color: #f1356d; text-decoration: none; font-weight: 500; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.1rem; font-family: 'Poppins', sans-serif; text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);"
+        href="${
           process.env.DOMAIN
         }/verifyemail?token=${hashedToken}">here</a> to ${
           emailType === 'VERIFY' ? 'Verify your account' : 'Reset password'
